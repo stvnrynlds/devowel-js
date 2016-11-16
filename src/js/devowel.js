@@ -7,27 +7,30 @@
 
 var VOWELS = ['A','E','I','O','U'];
 var devowel = document.querySelector('.devowel');
-var words = devowel.innerText.split(" ");
-devowel.innerText = "";
+var words = devowel.innerText.split(' ');
+devowel.innerText = '';
+console.log(words);
 
-_.each(words, function(word){
+words.forEach(function(word){
 
-  var chars = word.split("");
-  var wordTag = document.createElement('span');
-  wordTag.className = 'word';
+  console.log(word);
 
-  _.each(chars, function(char){
+  var chars = word.split('');
+  var wordEl = document.createElement('span');
+  wordEl.className = 'word';
 
-    var charTag = document.createElement('span');
-    charTag.className = 'char';
+  chars.forEach(function(char){
 
-    if (_.contains(VOWELS, char.toUpperCase())) {
-      charTag.className += ' vwl';
-    }
+    var charEl = document.createElement('span');
+    var charUpper = char.toUpperCase();
+    var isVowel = VOWELS.indexOf(charUpper) > -1;
 
-    charTag.innerText = char;
-    wordTag.appendChild(charTag)
+    charEl.className = isVowel ? 'char vwl' : 'char';
+    charEl.innerText = char;
+    wordEl.appendChild(charEl)
+
   });
 
-  devowel.appendChild(wordTag);
+  devowel.appendChild(wordEl);
+
 });
