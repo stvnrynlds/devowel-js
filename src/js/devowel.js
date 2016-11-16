@@ -6,31 +6,33 @@
 // * URL: github.com/stvnrynlds/devowel-js
 
 var VOWELS = ['A','E','I','O','U'];
-var devowel = document.querySelector('.devowel');
-var words = devowel.innerText.split(' ');
-devowel.innerText = '';
-console.log(words);
+var instances = document.querySelectorAll('.devowel');
 
-words.forEach(function(word){
+instances.forEach(function(instance){
 
-  console.log(word);
+  var words = instance.innerText.split(' ');
+  instance.innerText = '';
 
-  var chars = word.split('');
-  var wordEl = document.createElement('span');
-  wordEl.className = 'word';
+  words.forEach(function(word){
 
-  chars.forEach(function(char){
+    var chars = word.split('');
+    var wordEl = document.createElement('span');
+    wordEl.className = 'word';
 
-    var charEl = document.createElement('span');
-    var charUpper = char.toUpperCase();
-    var isVowel = VOWELS.indexOf(charUpper) > -1;
+    chars.forEach(function(char){
 
-    charEl.className = isVowel ? 'char vwl' : 'char';
-    charEl.innerText = char;
-    wordEl.appendChild(charEl)
+      var charEl = document.createElement('span');
+      var charUpper = char.toUpperCase();
+      var isVowel = VOWELS.indexOf(charUpper) > -1;
+
+      charEl.className = isVowel ? 'char vwl' : 'char';
+      charEl.innerText = char;
+      wordEl.appendChild(charEl)
+
+    });
+
+    instance.appendChild(wordEl);
 
   });
-
-  devowel.appendChild(wordEl);
 
 });
