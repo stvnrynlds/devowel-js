@@ -1,7 +1,7 @@
 'use strict';
 
 // Devowel JS
-// * Version: 0.0.0
+// * Version: 0.0.1
 // * Author: Steven Reynolds
 // * URL: github.com/stvnrynlds/devowel-js
 
