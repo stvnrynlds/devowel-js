@@ -8,5 +8,4 @@ Devoweler takes a string of text, wraps each word with `span.word`, each letter 
 Hahaha
 
 ## Dependencies
-- Underscore v1.8.3+ (for now)
-- Internet v13.0.1+
+- Internet
